@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+</head>
+<body>
+<div>
+    <div class="container button__container">
+        <a href="/book/" class="btn btn-primary">Book</a>
+        <button type="button" class="btn btn-primary"><a href="/books/{{ object.id }}/update/">Change</a></button>
+        <button type="button" class="btn btn-primary"><a href="/books/{{ object.id }}/delete/">Delete</a></button>
+    </div>
+    <h2>{{ object.title }}</h2>
+    <p>{{ object.description }}</p>
+    <img src="{{ object.image.url }}" alt="">
+    <p>{{ object.genre }}</p>
+    <p>{{ object.data }}</p>
+    <div>
+        <h2>Comments: </h2>
+        <ul>
+            {% for i in book_comment.all %}
+            <li>
+                <p>{{ i.text }}</p>
+                <p>{{ i.created_date }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+</html>
